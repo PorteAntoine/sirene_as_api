@@ -31,6 +31,7 @@ gem 'rubyzip'
 gem 'smarter_csv'
 
 gem 'ruby-progressbar'
+gem 'progress_bar'
 
 # Interactors
 gem "interactor", "~> 3.0"

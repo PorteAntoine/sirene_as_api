@@ -13,4 +13,26 @@ namespace :sirene_as_api do
   task :populate_database => :environment do
     PopulateDatabase.call
   end
+
+
+## Delete following tasks after tests
+  desc 'Import june stock in database'
+  task :import_june_monthly_stock => :environment do
+    ImportJuneMonthlyStock.call
+  end
+
+  desc 'Import may stock in database'
+  task :import_may_monthly_stock => :environment do
+    ImportMayMonthlyStock.call
+  end
+
+  desc 'Updates database for may to june'
+  task :select_and_apply_patches_may => :environment do
+    SelectAndApplyPatchesMay.call
+  end
+
+  desc 'Compare databases'
+  task :Compare_databases => :environment do
+    CompareDatabases.call
+  end
 end

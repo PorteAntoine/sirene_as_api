@@ -320,6 +320,7 @@ DEPENDENCIES
   rspec-rails (~> 3.5)
   rubocop-checkstyle_formatter
   rubocop-rspec
+  ruby-progressbar
   rubyzip
   sinatra (~> 2.0.0.beta2)
   smarter_csv

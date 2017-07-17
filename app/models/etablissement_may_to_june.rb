@@ -1,6 +1,6 @@
 # Class Etablissement
 
-class Etablissement < ApplicationRecord
+class EtablissementMayToJune < ApplicationRecord
   attr_accessor :csv_path
   # default_scope -> { where.not(nature_mise_a_jour: ["E", "O"]) }
 
@@ -16,5 +16,13 @@ class Etablissement < ApplicationRecord
 
   def self.latest_entry
     unscoped.limit(1).order('date_mise_a_jour DESC').first
+  end
+
+  def self.first_siret_database
+    unscoped.order('siret DESC').last.siret
+  end
+
+  def self.last_siret_database
+    unscoped.limit(1).order('siret DESC').first.siret
   end
 end

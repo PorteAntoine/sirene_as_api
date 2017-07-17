@@ -1,7 +1,6 @@
 class FullTextController < ApplicationController
   def show
     page = params[:page] || 1
-    #activite_principale = params[:activite_principale]
 
     search = Etablissement.search do
       fulltext params[:id]

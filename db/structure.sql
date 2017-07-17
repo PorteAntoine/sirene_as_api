@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.6
+-- Dumped from database version 9.5.7
 -- Dumped by pg_dump version 9.5.6
 
 SET statement_timeout = 0;
@@ -57,6 +57,304 @@ CREATE TABLE ar_internal_metadata (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
+
+
+--
+-- Name: etablissement_junes; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE etablissement_junes (
+    id integer NOT NULL,
+    siren character varying,
+    siret character varying,
+    nic character varying,
+    l1_normalisee character varying,
+    l2_normalisee character varying,
+    l3_normalisee character varying,
+    l4_normalisee character varying,
+    l5_normalisee character varying,
+    l6_normalisee character varying,
+    l7_normalisee character varying,
+    l1_declaree character varying,
+    l2_declaree character varying,
+    l3_declaree character varying,
+    l4_declaree character varying,
+    l5_declaree character varying,
+    l6_declaree character varying,
+    l7_declaree character varying,
+    numero_voie character varying,
+    indice_repetition character varying,
+    type_voie character varying,
+    libelle_voie character varying,
+    code_postal character varying,
+    cedex character varying,
+    region character varying,
+    libelle character varying,
+    departement character varying,
+    arrondissement character varying,
+    canton character varying,
+    commune character varying,
+    libelle_commune character varying,
+    departement_unite_urbaine character varying,
+    taille_unite_urbaine character varying,
+    numero_unite_urbaine character varying,
+    etablissement_public_cooperation_intercommunale character varying,
+    tranche_commune_detaillee character varying,
+    zone_emploi character varying,
+    is_siege character varying,
+    enseigne character varying,
+    indicateur_champ_publipostage character varying,
+    statut_diffusion character varying,
+    date_introduction_base_diffusion character varying,
+    nature_entrepreneur_individuel character varying,
+    libelle_nature_entrepreneur_individuel character varying,
+    activite_principale character varying,
+    libelle_activite_principale character varying,
+    date_validite_activite_principale character varying,
+    tranche_effectif_salarie character varying,
+    libelle_tranche_effectif_salarie character varying,
+    tranche_effectif_salarie_centaine_pret character varying,
+    date_validite_effectif_salarie character varying,
+    origine_creation character varying,
+    date_creation character varying,
+    date_debut_activite character varying,
+    nature_activite character varying,
+    lieu_activite character varying,
+    type_magasin character varying,
+    is_saisonnier character varying,
+    modalite_activite_principale character varying,
+    caractere_productif character varying,
+    participation_particuliere_production character varying,
+    caractere_auxiliaire character varying,
+    nom_raison_sociale character varying,
+    sigle character varying,
+    nom character varying,
+    prenom character varying,
+    civilite character varying,
+    numero_rna character varying,
+    nic_siege character varying,
+    region_siege character varying,
+    departement_commune_siege character varying,
+    email character varying,
+    nature_juridique_entreprise character varying,
+    libelle_nature_juridique_entreprise character varying,
+    activite_principale_entreprise character varying,
+    libelle_activite_principale_entreprise character varying,
+    date_validite_activite_principale_entreprise character varying,
+    activite_principale_registre_metier character varying,
+    is_ess character varying,
+    date_ess character varying,
+    tranche_effectif_salarie_entreprise character varying,
+    libelle_tranche_effectif_salarie_entreprise character varying,
+    tranche_effectif_salarie_entreprise_centaine_pret character varying,
+    date_validite_effectif_salarie_entreprise character varying,
+    categorie_entreprise character varying,
+    date_creation_entreprise character varying,
+    date_introduction_base_diffusion_entreprise character varying,
+    indice_monoactivite_entreprise character varying,
+    modalite_activite_principale_entreprise character varying,
+    caractere_productif_entreprise character varying,
+    date_validite_rubrique_niveau_entreprise_esa character varying,
+    tranche_chiffre_affaire_entreprise_esa character varying,
+    activite_principale_entreprise_esa character varying,
+    premiere_activite_secondaire_entreprise_esa character varying,
+    deuxieme_activite_secondaire_entreprise_esa character varying,
+    troisieme_activite_secondaire_entreprise_esa character varying,
+    quatrieme_activite_secondaire_entreprise_esa character varying,
+    nature_mise_a_jour character varying,
+    indicateur_mise_a_jour_1 character varying,
+    indicateur_mise_a_jour_2 character varying,
+    indicateur_mise_a_jour_3 character varying,
+    date_mise_a_jour character varying,
+    type_evenement character varying,
+    date_evenement character varying,
+    type_creation character varying,
+    date_reactivation_etablissement character varying,
+    date_reactivation_entreprise character varying,
+    indicateur_mise_a_jour_enseigne_entreprise character varying,
+    indicateur_mise_a_jour_activite_principale_etablissement character varying,
+    indicateur_mise_a_jour_adresse_etablissement character varying,
+    indicateur_mise_a_jour_caractere_productif_etablissement character varying,
+    indicateur_mise_a_jour_caractere_auxiliaire_etablissement character varying,
+    indicateur_mise_a_jour_nom_raison_sociale character varying,
+    indicateur_mise_a_jour_sigle character varying,
+    indicateur_mise_a_jour_nature_juridique character varying,
+    indicateur_mise_a_jour_activite_principale_entreprise character varying,
+    indicateur_mise_a_jour_caractere_productif_entreprise character varying,
+    indicateur_mise_a_jour_nic_siege character varying,
+    siret_predecesseur_successeur character varying,
+    telephone character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: etablissement_junes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE etablissement_junes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: etablissement_junes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE etablissement_junes_id_seq OWNED BY etablissement_junes.id;
+
+
+--
+-- Name: etablissement_may_to_junes; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE etablissement_may_to_junes (
+    id integer NOT NULL,
+    siren character varying,
+    siret character varying,
+    nic character varying,
+    l1_normalisee character varying,
+    l2_normalisee character varying,
+    l3_normalisee character varying,
+    l4_normalisee character varying,
+    l5_normalisee character varying,
+    l6_normalisee character varying,
+    l7_normalisee character varying,
+    l1_declaree character varying,
+    l2_declaree character varying,
+    l3_declaree character varying,
+    l4_declaree character varying,
+    l5_declaree character varying,
+    l6_declaree character varying,
+    l7_declaree character varying,
+    numero_voie character varying,
+    indice_repetition character varying,
+    type_voie character varying,
+    libelle_voie character varying,
+    code_postal character varying,
+    cedex character varying,
+    region character varying,
+    libelle character varying,
+    departement character varying,
+    arrondissement character varying,
+    canton character varying,
+    commune character varying,
+    libelle_commune character varying,
+    departement_unite_urbaine character varying,
+    taille_unite_urbaine character varying,
+    numero_unite_urbaine character varying,
+    etablissement_public_cooperation_intercommunale character varying,
+    tranche_commune_detaillee character varying,
+    zone_emploi character varying,
+    is_siege character varying,
+    enseigne character varying,
+    indicateur_champ_publipostage character varying,
+    statut_diffusion character varying,
+    date_introduction_base_diffusion character varying,
+    nature_entrepreneur_individuel character varying,
+    libelle_nature_entrepreneur_individuel character varying,
+    activite_principale character varying,
+    libelle_activite_principale character varying,
+    date_validite_activite_principale character varying,
+    tranche_effectif_salarie character varying,
+    libelle_tranche_effectif_salarie character varying,
+    tranche_effectif_salarie_centaine_pret character varying,
+    date_validite_effectif_salarie character varying,
+    origine_creation character varying,
+    date_creation character varying,
+    date_debut_activite character varying,
+    nature_activite character varying,
+    lieu_activite character varying,
+    type_magasin character varying,
+    is_saisonnier character varying,
+    modalite_activite_principale character varying,
+    caractere_productif character varying,
+    participation_particuliere_production character varying,
+    caractere_auxiliaire character varying,
+    nom_raison_sociale character varying,
+    sigle character varying,
+    nom character varying,
+    prenom character varying,
+    civilite character varying,
+    numero_rna character varying,
+    nic_siege character varying,
+    region_siege character varying,
+    departement_commune_siege character varying,
+    email character varying,
+    nature_juridique_entreprise character varying,
+    libelle_nature_juridique_entreprise character varying,
+    activite_principale_entreprise character varying,
+    libelle_activite_principale_entreprise character varying,
+    date_validite_activite_principale_entreprise character varying,
+    activite_principale_registre_metier character varying,
+    is_ess character varying,
+    date_ess character varying,
+    tranche_effectif_salarie_entreprise character varying,
+    libelle_tranche_effectif_salarie_entreprise character varying,
+    tranche_effectif_salarie_entreprise_centaine_pret character varying,
+    date_validite_effectif_salarie_entreprise character varying,
+    categorie_entreprise character varying,
+    date_creation_entreprise character varying,
+    date_introduction_base_diffusion_entreprise character varying,
+    indice_monoactivite_entreprise character varying,
+    modalite_activite_principale_entreprise character varying,
+    caractere_productif_entreprise character varying,
+    date_validite_rubrique_niveau_entreprise_esa character varying,
+    tranche_chiffre_affaire_entreprise_esa character varying,
+    activite_principale_entreprise_esa character varying,
+    premiere_activite_secondaire_entreprise_esa character varying,
+    deuxieme_activite_secondaire_entreprise_esa character varying,
+    troisieme_activite_secondaire_entreprise_esa character varying,
+    quatrieme_activite_secondaire_entreprise_esa character varying,
+    nature_mise_a_jour character varying,
+    indicateur_mise_a_jour_1 character varying,
+    indicateur_mise_a_jour_2 character varying,
+    indicateur_mise_a_jour_3 character varying,
+    date_mise_a_jour character varying,
+    type_evenement character varying,
+    date_evenement character varying,
+    type_creation character varying,
+    date_reactivation_etablissement character varying,
+    date_reactivation_entreprise character varying,
+    indicateur_mise_a_jour_enseigne_entreprise character varying,
+    indicateur_mise_a_jour_activite_principale_etablissement character varying,
+    indicateur_mise_a_jour_adresse_etablissement character varying,
+    indicateur_mise_a_jour_caractere_productif_etablissement character varying,
+    indicateur_mise_a_jour_caractere_auxiliaire_etablissement character varying,
+    indicateur_mise_a_jour_nom_raison_sociale character varying,
+    indicateur_mise_a_jour_sigle character varying,
+    indicateur_mise_a_jour_nature_juridique character varying,
+    indicateur_mise_a_jour_activite_principale_entreprise character varying,
+    indicateur_mise_a_jour_caractere_productif_entreprise character varying,
+    indicateur_mise_a_jour_nic_siege character varying,
+    siret_predecesseur_successeur character varying,
+    telephone character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: etablissement_may_to_junes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE etablissement_may_to_junes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: etablissement_may_to_junes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE etablissement_may_to_junes_id_seq OWNED BY etablissement_may_to_junes.id;
 
 
 --
@@ -221,6 +519,20 @@ CREATE TABLE schema_migrations (
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY etablissement_junes ALTER COLUMN id SET DEFAULT nextval('etablissement_junes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY etablissement_may_to_junes ALTER COLUMN id SET DEFAULT nextval('etablissement_may_to_junes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY etablissements ALTER COLUMN id SET DEFAULT nextval('etablissements_id_seq'::regclass);
 
 
@@ -230,6 +542,22 @@ ALTER TABLE ONLY etablissements ALTER COLUMN id SET DEFAULT nextval('etablisseme
 
 ALTER TABLE ONLY ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: etablissement_junes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY etablissement_junes
+    ADD CONSTRAINT etablissement_junes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: etablissement_may_to_junes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY etablissement_may_to_junes
+    ADD CONSTRAINT etablissement_may_to_junes_pkey PRIMARY KEY (id);
 
 
 --
@@ -284,6 +612,146 @@ CREATE INDEX entreprises_to_tsvector_idx4 ON etablissements USING gin (to_tsvect
 
 
 --
+-- Name: etablissement_junes_to_tsvector_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX etablissement_junes_to_tsvector_idx ON etablissement_junes USING gin (to_tsvector('french'::regconfig, (siren)::text));
+
+
+--
+-- Name: etablissement_junes_to_tsvector_idx1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX etablissement_junes_to_tsvector_idx1 ON etablissement_junes USING gin (to_tsvector('french'::regconfig, (siret)::text));
+
+
+--
+-- Name: etablissement_junes_to_tsvector_idx2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX etablissement_junes_to_tsvector_idx2 ON etablissement_junes USING gin (to_tsvector('french'::regconfig, (activite_principale)::text));
+
+
+--
+-- Name: etablissement_junes_to_tsvector_idx3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX etablissement_junes_to_tsvector_idx3 ON etablissement_junes USING gin (to_tsvector('french'::regconfig, (l6_normalisee)::text));
+
+
+--
+-- Name: etablissement_junes_to_tsvector_idx4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX etablissement_junes_to_tsvector_idx4 ON etablissement_junes USING gin (to_tsvector('french'::regconfig, (nom_raison_sociale)::text));
+
+
+--
+-- Name: etablissement_may_to_junes_to_tsvector_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX etablissement_may_to_junes_to_tsvector_idx ON etablissement_may_to_junes USING gin (to_tsvector('french'::regconfig, (siren)::text));
+
+
+--
+-- Name: etablissement_may_to_junes_to_tsvector_idx1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX etablissement_may_to_junes_to_tsvector_idx1 ON etablissement_may_to_junes USING gin (to_tsvector('french'::regconfig, (siret)::text));
+
+
+--
+-- Name: etablissement_may_to_junes_to_tsvector_idx2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX etablissement_may_to_junes_to_tsvector_idx2 ON etablissement_may_to_junes USING gin (to_tsvector('french'::regconfig, (activite_principale)::text));
+
+
+--
+-- Name: etablissement_may_to_junes_to_tsvector_idx3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX etablissement_may_to_junes_to_tsvector_idx3 ON etablissement_may_to_junes USING gin (to_tsvector('french'::regconfig, (l6_normalisee)::text));
+
+
+--
+-- Name: etablissement_may_to_junes_to_tsvector_idx4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX etablissement_may_to_junes_to_tsvector_idx4 ON etablissement_may_to_junes USING gin (to_tsvector('french'::regconfig, (nom_raison_sociale)::text));
+
+
+--
+-- Name: index_etablissement_junes_on_activite_principale; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_etablissement_junes_on_activite_principale ON etablissement_junes USING btree (activite_principale);
+
+
+--
+-- Name: index_etablissement_junes_on_l6_normalisee; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_etablissement_junes_on_l6_normalisee ON etablissement_junes USING btree (l6_normalisee);
+
+
+--
+-- Name: index_etablissement_junes_on_nom_raison_sociale; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_etablissement_junes_on_nom_raison_sociale ON etablissement_junes USING btree (nom_raison_sociale);
+
+
+--
+-- Name: index_etablissement_junes_on_siren; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_etablissement_junes_on_siren ON etablissement_junes USING btree (siren);
+
+
+--
+-- Name: index_etablissement_junes_on_siret; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_etablissement_junes_on_siret ON etablissement_junes USING btree (siret);
+
+
+--
+-- Name: index_etablissement_may_to_junes_on_activite_principale; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_etablissement_may_to_junes_on_activite_principale ON etablissement_may_to_junes USING btree (activite_principale);
+
+
+--
+-- Name: index_etablissement_may_to_junes_on_l6_normalisee; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_etablissement_may_to_junes_on_l6_normalisee ON etablissement_may_to_junes USING btree (l6_normalisee);
+
+
+--
+-- Name: index_etablissement_may_to_junes_on_nom_raison_sociale; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_etablissement_may_to_junes_on_nom_raison_sociale ON etablissement_may_to_junes USING btree (nom_raison_sociale);
+
+
+--
+-- Name: index_etablissement_may_to_junes_on_siren; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_etablissement_may_to_junes_on_siren ON etablissement_may_to_junes USING btree (siren);
+
+
+--
+-- Name: index_etablissement_may_to_junes_on_siret; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_etablissement_may_to_junes_on_siret ON etablissement_may_to_junes USING btree (siret);
+
+
+--
 -- Name: index_etablissements_on_activite_principale; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -327,6 +795,8 @@ SET search_path TO "$user", public;
 INSERT INTO "schema_migrations" (version) VALUES
 ('20170118130314'),
 ('20170124130819'),
-('20170130100203');
+('20170130100203'),
+('20170713104830'),
+('20170713104847');
 
 
