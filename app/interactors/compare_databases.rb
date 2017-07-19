@@ -33,7 +33,6 @@ class CompareDatabases < SireneAsAPIInteractor
     else
       stdout_warn_log("NOT same SIRET. Siret may to june : #{EtablissementMayToJune.first_siret_database},
         Siret june: #{EtablissementJune.first_siret_database}")
-      return false
     end
 
     stdout_info_log("Comparing last SIRET on both databases...")
@@ -42,10 +41,7 @@ class CompareDatabases < SireneAsAPIInteractor
     else
       stdout_warn_log("NOT same SIRET. Siret may to june : #{EtablissementMayToJune.first_siret_database},
         Siret june: #{EtablissementJune.last_siret_database}")
-      return false
     end
-
-    return true
   end
 
   def compare_and_get_siret_array
@@ -89,8 +85,10 @@ class CompareDatabases < SireneAsAPIInteractor
     else
       hash_may_to_june_purged = etablissement_db_may_to_june.attributes.except(*keys_to_remove)
       hash_june_purged = etablissement_db_june.attributes.except(*keys_to_remove)
+
       diff = get_differences_between_hashes(hash_may_to_june_purged, hash_june_purged)
       values_diff = diff.flatten
+
       if (!values_diff.empty?)
         @general_log.info("Difference found MaytoJune to June : #{diff}")
         save_in_correct_log(values_diff, diff)
@@ -140,12 +138,14 @@ class CompareDatabases < SireneAsAPIInteractor
   def make_final_count
     stdout_info_log("TOTAL COUNT FOR EACH DIFFERENCE")
     total_differences = 0
+
     keys_to_save.each do |key_name|
       lines = File.foreach("log/comparison_database_#{key_name}.txt").count
       stdout_info_log("Total differences in #{key_name} : #{lines}")
       # Logger.new("log/comparison_database_#{key_name}.txt", File::CREAT)
       total_differences += lines
     end
+
     lines = File.foreach("log/comparison_database_general.txt").count
     stdout_warn_log("Total rows that are differents : #{lines} on a total of #{@maximum_entries_to_check} checked")
     stdout_warn_log("Total differences : #{total_differences}")
