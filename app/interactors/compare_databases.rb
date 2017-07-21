@@ -75,12 +75,15 @@ class CompareDatabases < SireneAsAPIInteractor
 
     if (etablissement_db_may_to_june == nil && etablissement_db_june != nil)
       @general_log.info("Difference found : June but MaytoJune doesn't for siret : #{siret}")
+      @general_log_light.info("Difference found : June but MaytoJune doesn't for siret : #{siret}")
 
     elsif (etablissement_db_may_to_june != nil && etablissement_db_june == nil)
       @general_log.info("Difference found : MayToJune exist but June doesn't for siret : #{siret} with nature_mise_a_jour: #{etablissement_db_may_to_june.nature_mise_a_jour}")
+      @general_log_light.info("Difference found : MayToJune exist but June doesn't for siret : #{siret} with nature_mise_a_jour: #{etablissement_db_may_to_june.nature_mise_a_jour}")
 
     elsif (etablissement_db_may_to_june == nil && etablissement_db_june == nil)
       @general_log.info("A siret with no name in both databases was found : #{siret}")
+      @general_log_light.info("A siret with no name in both databases was found : #{siret}")
 
     else
       hash_may_to_june_purged = etablissement_db_may_to_june.attributes.except(*keys_to_remove)
@@ -90,8 +93,8 @@ class CompareDatabases < SireneAsAPIInteractor
       values_diff = diff.flatten
 
       if (!values_diff.empty?)
-        @general_log.info("Difference found MaytoJune to June : #{diff}")
-        save_in_correct_log(values_diff, diff)
+        @general_log.info("Siret #{siret} - Difference found June ¬ MaytoJune : #{diff}")
+        save_in_correct_log(values_diff, diff, siret)
       end
     end
   end
@@ -102,11 +105,11 @@ class CompareDatabases < SireneAsAPIInteractor
     [differenceA, differenceB]
   end
 
-  def save_in_correct_log(values_diff, diff)
+  def save_in_correct_log(values_diff, diff, siret)
     keys_to_save.each do |key_name|
       if (values_diff.include? key_name)
         File.open("log/comparison_database_#{key_name}.txt", "a") do |f|
-          f.puts "Difference found MaytoJune to June : #{diff}"
+          f.puts "Siret #{siret} - Difference found June ¬ MaytoJune : #{diff}"
         end
       end
     end
@@ -128,7 +131,9 @@ class CompareDatabases < SireneAsAPIInteractor
   def create_logs
     stdout_info_log("Creating log files...")
     file = File.open('log/comparison_database_general.txt', 'w')
+    file2 = File.open('log/comparison_database_general_light.txt', 'w')
     @general_log = Logger.new(file)
+    @general_log_light = Logger.new(file2)
     keys_to_save.each do |key_name|
       File.open("log/comparison_database_#{key_name}.txt", 'w')
       # Logger.new("log/comparison_database_#{key_name}.txt", File::CREAT)
